@@ -1,0 +1,21 @@
+From: "Microsoft 365 Team" <admin@micros0ft-office-auth.com>
+To: corporate-employee@example.com
+Subject: Critical Notice: Your Microsoft 365 Password Expires Today
+Date: Mon, 12 Oct 2026 10:20:00 +0000
+Message-ID: <synthetic-phish-02@micros0ft-office-auth.com>
+Reply-To: security-helpdesk@office365-tenant-alert.top
+Authentication-Results: mx.example.com; spf=softfail; dkim=fail;
+Content-Type: text/html; charset="UTF-8"
+
+<!DOCTYPE html>
+<html>
+<body>
+  <p>Attention Account Holder,</p>
+  <p>Your corporate password policy requires an immediate security update. Your password will expire within 12 hours.</p>
+  <p>Failure to update your credentials will lock you out of Microsoft Teams, Outlook, and OneDrive.</p>
+  <p>
+    <a href="http://192.168.1.105/auth/microsoft-login.html">Click Here to Keep Your Existing Password and Validate Session</a>
+  </p>
+  <p>This is a system generated message. Do not ignore.</p>
+</body>
+</html>

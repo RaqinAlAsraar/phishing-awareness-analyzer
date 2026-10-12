@@ -1,0 +1,8 @@
+# Phishing Awareness Analyzer - Dependencies
+# Core engine uses 100% Python Standard Library (Zero external network dependencies)
+
+# Native Desktop GUI (Optional alternative to modern Web GUI)
+PyQt6>=6.5.0
+
+# Testing and verification
+pytest>=7.4.0

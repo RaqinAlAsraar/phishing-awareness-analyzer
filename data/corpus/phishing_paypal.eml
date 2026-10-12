@@ -1,0 +1,23 @@
+From: "PayPal Security Center" <service@paypa1-security-update.com>
+To: target-user@example.com
+Subject: URGENT: Your PayPal Account Has Been Suspended Within 24 Hours
+Date: Mon, 12 Oct 2026 09:15:00 +0000
+Message-ID: <synthetic-phish-01@paypa1-security-update.com>
+Reply-To: support@secure-account-verify-login.xyz
+Authentication-Results: mx.example.com; spf=fail (sender IP not authorized); dkim=none;
+Content-Type: text/html; charset="UTF-8"
+
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Dear Customer,</h2>
+  <p>We detected an unauthorized transaction and suspicious sign-in activity from an unrecognized location on your account.</p>
+  <p><strong>Immediate action required:</strong> Your account access has been restricted. You must verify your account and confirm your password within 24 hours to avoid permanent termination.</p>
+  <p>
+    Please authenticate your session immediately by clicking below:<br>
+    <a href="http://login.paypal.com.account-update-portal.xyz/verify-login">https://www.paypal.com/security/restore-account</a>
+  </p>
+  <p>Failure to respond will result in complete account closure.</p>
+  <p>Sincerely,<br>PayPal Customer Support</p>
+</body>
+</html>

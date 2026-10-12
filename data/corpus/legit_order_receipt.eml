@@ -1,0 +1,21 @@
+From: "Store Orders" <orders@legit-store.com>
+To: customer@example.com
+Subject: Your Order #99104 Has Shipped!
+Date: Mon, 12 Oct 2026 06:00:00 +0000
+Message-ID: <order-99104@legit-store.com>
+Reply-To: support@legit-store.com
+Authentication-Results: mx.example.com; spf=pass smtp.mailfrom=legit-store.com; dkim=pass header.d=legit-store.com;
+Content-Type: text/plain; charset="UTF-8"
+
+Hi Alex,
+
+Great news! Your recent order #99104 has shipped via standard parcel delivery.
+
+Estimated Arrival: Wednesday, Oct 14, 2026
+Carrier: Postal Express
+
+You can track your package progress anytime here:
+https://legit-store.com/tracking/99104
+
+Thank you for shopping with us!
+Legit Store Logistics Team

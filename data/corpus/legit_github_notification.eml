@@ -1,0 +1,21 @@
+From: "GitHub Notifications" <notifications@github.com>
+To: developer@example.com
+Subject: [raqinalasraar/password-strength-checker] Pull Request #1 merged (main)
+Date: Mon, 12 Oct 2026 08:00:00 +0000
+Message-ID: <github/password-strength-checker/pull/1@github.com>
+Reply-To: reply+AB34567@reply.github.com
+Authentication-Results: mx.example.com; spf=pass (sender IP is 192.30.252.204) smtp.mailfrom=github.com; dkim=pass header.d=github.com; dmarc=pass
+Content-Type: text/html; charset="UTF-8"
+
+<!DOCTYPE html>
+<html>
+<body>
+  <p>Hi @raqinalasraar,</p>
+  <p>Pull request #1 (feat: unit test enhancements) was merged into branch <code>main</code> by contributor.</p>
+  <p>
+    View on GitHub: <a href="https://github.com/raqinalasraar/password-strength-checker/pull/1">https://github.com/raqinalasraar/password-strength-checker/pull/1</a>
+  </p>
+  <p>You are receiving this because you are subscribed to this repository. You can adjust your notification settings in your account preferences.</p>
+  <p>GitHub, Inc. 88 Colin P Kelly Jr St, San Francisco, CA 94107</p>
+</body>
+</html>

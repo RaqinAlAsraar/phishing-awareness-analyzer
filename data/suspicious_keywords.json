@@ -1,0 +1,62 @@
+{
+  "urgency_keywords": [
+    "immediately",
+    "immediate action required",
+    "within 24 hours",
+    "within 12 hours",
+    "within 48 hours",
+    "account suspended",
+    "account will be closed",
+    "account will be terminated",
+    "urgent notice",
+    "critical security alert",
+    "final warning",
+    "action required",
+    "immediate response needed",
+    "act now",
+    "limited time",
+    "access restricted",
+    "unauthorized access detected",
+    "temporary hold",
+    "suspension notice"
+  ],
+  "credential_harvesting": [
+    "verify your password",
+    "confirm your password",
+    "reset your password",
+    "update your credentials",
+    "verify your account",
+    "confirm your identity",
+    "validate your billing",
+    "update payment method",
+    "enter your credit card",
+    "confirm your ssn",
+    "social security number",
+    "login to restore",
+    "click here to unlock",
+    "authenticate your session",
+    "submit your verification code",
+    "confirm your secret question"
+  ],
+  "fake_security_warnings": [
+    "unusual sign-in activity",
+    "unauthorized transaction detected",
+    "login from unknown device",
+    "suspicious activity flagged",
+    "breach detected",
+    "security policy violation",
+    "malicious login attempt",
+    "compromised account",
+    "failed login attempts exceeded"
+  ],
+  "impersonal_greetings": [
+    "dear customer",
+    "dear user",
+    "dear member",
+    "dear client",
+    "valued customer",
+    "attention account holder",
+    "dear account owner",
+    "undisclosed recipients"
+  ]
+}

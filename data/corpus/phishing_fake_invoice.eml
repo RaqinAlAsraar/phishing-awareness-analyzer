@@ -1,0 +1,21 @@
+From: "DHL Express Delivery" <tracking@dhl-shipping-parcel-notice.work>
+To: recipient@example.com
+Subject: Action Required: Unpaid Customs Fee for Package #DH-88291
+Date: Mon, 12 Oct 2026 12:30:00 +0000
+Message-ID: <synthetic-phish-04@dhl-shipping-parcel-notice.work>
+Reply-To: parcel-clearance@dhl-customs-payment.buzz
+Authentication-Results: mx.example.com; spf=fail; dkim=none;
+Content-Type: text/html; charset="UTF-8"
+
+<!DOCTYPE html>
+<html>
+<body>
+  <h3>Valued Customer,</h3>
+  <p>Your package has been detained at our central hub due to an outstanding clearance fee of $2.99.</p>
+  <p><strong>Immediate response needed:</strong> If the fee is not cleared immediately within 48 hours, the package will be returned to the sender or destroyed.</p>
+  <p>
+    <a href="http://45.33.32.156/dhl-pay/invoice.php">Pay Outstanding Clearance Fee Online</a>
+  </p>
+  <p>DHL International Courier Services</p>
+</body>
+</html>

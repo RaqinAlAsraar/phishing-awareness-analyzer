@@ -1,0 +1,22 @@
+From: "Chase Bank Alerts" <onlinebanking@chase-secure-verify.click>
+To: account-holder@example.com
+Subject: Final Warning: Access Restricted Due to Unusual Sign-in Activity
+Date: Mon, 12 Oct 2026 11:00:00 +0000
+Message-ID: <synthetic-phish-03@chase-secure-verify.click>
+Reply-To: security-fraud-resolution@suspicious-bank-help.xyz
+Received-SPF: fail (domain of chase-secure-verify.click does not designate 203.0.113.195 as permitted sender)
+Content-Type: text/plain; charset="UTF-8"
+
+Dear Member,
+
+A security breach attempt was detected targeting your online banking portal. 
+We placed a temporary hold on your account.
+
+Action Required:
+You must verify your account and confirm your identity to restore full banking capabilities. 
+If you do not act now within 24 hours, your card will be deactivated.
+
+Restore Access: http://chase.com.online-banking-restore.click/login?id=88392
+
+Do not reply to this email.
+Chase Fraud Prevention Department

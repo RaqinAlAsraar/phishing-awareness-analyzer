@@ -1,0 +1,22 @@
+From: "Python Weekly" <newsletter@pythonweekly.com>
+To: subscriber@example.com
+Subject: Python Weekly - Issue 650: Modern Web Architectures & Security
+Date: Mon, 12 Oct 2026 07:30:00 +0000
+Message-ID: <pw-issue-650@pythonweekly.com>
+Reply-To: editorial@pythonweekly.com
+Authentication-Results: mx.example.com; spf=pass (sender IP authorized) smtp.mailfrom=pythonweekly.com; dkim=pass header.d=pythonweekly.com; dmarc=pass
+Content-Type: text/html; charset="UTF-8"
+
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Python Weekly - Issue 650</h2>
+  <p>Welcome to this week's curated edition of articles, projects, and security research in the Python ecosystem.</p>
+  <ul>
+    <li><a href="https://pythonweekly.com/articles/asyncio-patterns">Understanding Asyncio Internals</a></li>
+    <li><a href="https://pythonweekly.com/articles/credential-auditing">Defensive Credential Auditing</a></li>
+  </ul>
+  <p>To unsubscribe or update your reading preferences, visit <a href="https://pythonweekly.com/manage-subscription">Manage Subscription</a>.</p>
+  <p>© 2026 Python Weekly. All rights reserved.</p>
+</body>
+</html>

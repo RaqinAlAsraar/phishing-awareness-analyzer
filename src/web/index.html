@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phishing Awareness Analyzer | Threat Detection & Heuristics</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="dark-theme">
+  <div class="app-container">
+    <!-- Top App Bar -->
+    <header class="app-header">
+      <div class="brand">
+        <div class="brand-icon">🛡️</div>
+        <div>
+          <h1>Phishing Awareness Analyzer</h1>
+          <p class="subtitle">Threat Detection & Heuristics Engine &bull; Task 2</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="author-badge">
+          <span>Created by</span>
+          <strong>Ali Abbas Haidar</strong>
+          <span class="alias">(@raqinalasraar)</span>
+        </div>
+        <button id="themeToggle" class="icon-btn" title="Toggle Theme" aria-label="Toggle Theme">🌙</button>
+      </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="tab-nav">
+      <button class="tab-btn active" data-tab="emailTab">✉️ Email Analyzer</button>
+      <button class="tab-btn" data-tab="urlTab">🔗 URL Inspector</button>
+      <button class="tab-btn" data-tab="benchmarkTab">🧪 Synthetic Corpus</button>
+      <button class="tab-btn" data-tab="guideTab">📖 Heuristics Guide</button>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- TAB 1: Email Analyzer -->
+      <section id="emailTab" class="tab-pane active">
+        <div class="grid-layout">
+          <!-- Input Column -->
+          <div class="card input-card">
+            <div class="card-header">
+              <h2>Email Message Input</h2>
+              <div class="sample-loader">
+                <label for="corpusSelect">Load Synthetic Sample:</label>
+                <select id="corpusSelect">
+                  <option value="">-- Choose Sample --</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="file-drop-zone" id="fileDropZone">
+              <input type="file" id="fileInput" accept=".eml,.txt" style="display:none">
+              <button type="button" class="btn btn-secondary btn-sm" id="browseBtn">📂 Open .eml File</button>
+              <span class="drop-hint">or drop raw email file here</span>
+            </div>
+
+            <div class="textarea-container">
+              <label for="emailInput" class="sr-only">Raw Email Content</label>
+              <textarea id="emailInput" placeholder="Paste full email with headers (From, Subject, Received-SPF) or plain message body here..." rows="14"></textarea>
+            </div>
+
+            <div class="card-footer">
+              <button id="clearEmailBtn" class="btn btn-secondary">Clear</button>
+              <button id="analyzeEmailBtn" class="btn btn-primary">🔍 Analyze Email Threat</button>
+            </div>
+          </div>
+
+          <!-- Results Column -->
+          <div class="card results-card" id="emailResultsCard">
+            <div class="empty-state" id="emailEmptyState">
+              <div class="empty-icon">📧</div>
+              <h3>Ready for Inspection</h3>
+              <p>Paste an email or select a synthetic test sample from the dropdown to evaluate headers, urgency, and embedded links.</p>
+            </div>
+
+            <div class="results-content" id="emailResultsContent" style="display: none;">
+              <!-- Score Banner -->
+              <div class="score-banner" id="scoreBanner">
+                <div class="score-circle" id="scoreCircle">
+                  <span class="score-number" id="scoreValue">0</span>
+                  <span class="score-label">/ 100</span>
+                </div>
+                <div class="score-meta">
+                  <div class="tier-badge" id="tierBadge">LOW RISK</div>
+                  <h3 class="tier-verdict" id="tierVerdict">No critical indicators found</h3>
+                  <div class="score-bars">
+                    <div class="score-bar-item">
+                      <span>Headers: <strong id="headerPts">0</strong> pts</span>
+                    </div>
+                    <div class="score-bar-item">
+                      <span>Body: <strong id="bodyPts">0</strong> pts</span>
+                    </div>
+                    <div class="score-bar-item">
+                      <span>URLs: <strong id="urlPts">0</strong> pts</span>
+                    </div>
+                    <div class="score-bar-item bonus">
+                      <span>Auth Bonus: <strong id="authBonus">-0</strong> pts</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Sender & Authentication Info -->
+              <div class="sender-info-box" id="senderInfoBox">
+                <h4>Sender & Authentication Overview</h4>
+                <div class="sender-grid">
+                  <div><span class="muted">Display Name:</span> <strong id="senderDisplay">-</strong></div>
+                  <div><span class="muted">Sender Address:</span> <strong id="senderEmail">-</strong></div>
+                  <div><span class="muted">Sender Domain:</span> <strong id="senderDomain">-</strong></div>
+                  <div><span class="muted">Reply-To:</span> <strong id="senderReplyTo">-</strong></div>
+                  <div><span class="muted">Subject:</span> <strong id="emailSubject">-</strong></div>
+                  <div>
+                    <span class="muted">SPF Status:</span> <span id="spfBadge" class="auth-pill">UNKNOWN</span>
+                    <span class="muted" style="margin-left: 8px;">DKIM Status:</span> <span id="dkimBadge" class="auth-pill">UNKNOWN</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Threat Indicators -->
+              <div class="section-box">
+                <h4>Detected Threat Indicators (<span id="findingsCount">0</span>)</h4>
+                <div id="findingsList" class="findings-list"></div>
+              </div>
+
+              <!-- Embedded URLs -->
+              <div class="section-box">
+                <h4>Embedded Hyperlinks (<span id="linksCount">0</span>)</h4>
+                <div id="linksList" class="links-list"></div>
+              </div>
+
+              <!-- Recommendations -->
+              <div class="section-box advisory-box">
+                <h4>Recommended Security Actions</h4>
+                <ul id="recommendationsList" class="recommendations-list"></ul>
+              </div>
+
+              <!-- Educational Disclaimer -->
+              <div class="disclaimer-box" id="disclaimerBox">
+                <strong>Educational Notice:</strong>
+                <p id="disclaimerText"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 2: URL Inspector -->
+      <section id="urlTab" class="tab-pane">
+        <div class="card single-col-card">
+          <div class="card-header">
+            <h2>Standalone URL Security Inspector</h2>
+            <span class="badge-pill">100% Offline Static Heuristics</span>
+          </div>
+
+          <p class="section-desc">
+            Inspect individual web addresses for deceptive structures, IP address hosting, typosquatting, leetspeak, high-risk TLDs, and fake credential endpoints without sending any network packets.
+          </p>
+
+          <div class="quick-examples">
+            <span>Quick test examples:</span>
+            <button class="chip-btn" data-url="http://192.168.1.100/login">IP Address Link</button>
+            <button class="chip-btn" data-url="https://paypa1-security.com/restore">Typosquatting Lure</button>
+            <button class="chip-btn" data-url="https://paypal.com.account-verify.net/signin">Subdomain Deception</button>
+            <button class="chip-btn" data-url="https://secure-portal.xyz/billing">High-Risk TLD</button>
+            <button class="chip-btn" data-url="https://github.com/login">Legitimate GitHub</button>
+          </div>
+
+          <div class="url-input-row">
+            <input type="text" id="standaloneUrlInput" placeholder="Enter URL (e.g. http://192.168.1.50/verify or https://micros0ft-login.com)" />
+            <button id="analyzeUrlBtn" class="btn btn-primary">Scan Link</button>
+          </div>
+
+          <!-- URL Results -->
+          <div id="urlResultsContainer" style="display:none; margin-top: 24px;"></div>
+        </div>
+      </section>
+
+      <!-- TAB 3: Synthetic Corpus Benchmark -->
+      <section id="benchmarkTab" class="tab-pane">
+        <div class="card single-col-card">
+          <div class="card-header">
+            <h2>Synthetic Corpus Benchmark Suite</h2>
+            <button id="runBenchmarkBtn" class="btn btn-primary">▶ Run Benchmark on All Samples</button>
+          </div>
+          <p class="section-desc">
+            Batch-evaluates the built-in synthetic test corpus (PayPal, M365, Chase, DHL, GitHub PR, Python Newsletter, Store Receipt) against all heuristic detection rules.
+          </p>
+
+          <div class="benchmark-table-container">
+            <table class="benchmark-table">
+              <thead>
+                <tr>
+                  <th>Sample File</th>
+                  <th>Simulated Scenario</th>
+                  <th>Expected Ground Truth</th>
+                  <th>Predicted Risk</th>
+                  <th>Risk Tier</th>
+                  <th>Findings</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="benchmarkTableBody">
+                <tr>
+                  <td colspan="7" class="text-center muted">Click "Run Benchmark on All Samples" to evaluate the corpus.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 4: Heuristics Guide -->
+      <section id="guideTab" class="tab-pane">
+        <div class="card single-col-card guide-content">
+          <h2>Phishing Detection & Threat Heuristics Guide</h2>
+          <p class="section-desc">
+            Phishing awareness training requires understanding how adversaries manipulate psychology and technical protocols. Below is a breakdown of the core heuristic techniques applied by this engine:
+          </p>
+
+          <div class="guide-grid">
+            <div class="guide-card">
+              <div class="guide-icon">👤</div>
+              <h3>1. Display Name Spoofing</h3>
+              <p>
+                Adversaries set the friendly "Display Name" to a trusted brand (e.g., <code>"PayPal Service"</code>) while the actual sending domain is unrelated (e.g., <code>attacker@random-vps.com</code>). Because mobile email clients emphasize display names over addresses, victims are easily misled.
+              </p>
+            </div>
+
+            <div class="guide-card">
+              <div class="guide-icon">↩️</div>
+              <h3>2. Reply-To Mismatches</h3>
+              <p>
+                Phishers may forge legitimate organizations in the <code>From:</code> line, but set a hidden <code>Reply-To:</code> header pointing to their disposable mailbox so any response is routed directly to the attacker.
+              </p>
+            </div>
+
+            <div class="guide-card">
+              <div class="guide-icon">🔐</div>
+              <h3>3. SPF & DKIM Verification</h3>
+              <p>
+                <strong>SPF (Sender Policy Framework)</strong> authorizes IP addresses allowed to send mail on behalf of a domain. <strong>DKIM (DomainKeys Identified Mail)</strong> provides a cryptographic digital signature ensuring message integrity. Failures or absences indicate potential forgery.
+              </p>
+            </div>
+
+            <div class="guide-card">
+              <div class="guide-icon">⏳</div>
+              <h3>4. Psychological Urgency & Scarcity</h3>
+              <p>
+                Social engineering relies on urgency cues (e.g., <em>"Within 24 hours"</em>, <em>"Account suspended"</em>, <em>"Immediate action required"</em>) to evoke anxiety and bypass rational analytical scrutiny.
+              </p>
+            </div>
+
+            <div class="guide-card">
+              <div class="guide-icon">🔤</div>
+              <h3>5. Typosquatting & Leetspeak</h3>
+              <p>
+                Attackers register visual lookalike domains replacing letters with numbers or similar glyphs (e.g., <code>paypa1.com</code> with numeral <code>1</code>, <code>micros0ft.com</code> with <code>0</code>, or appending fake subdomains <code>paypal.com.attacker.net</code>).
+              </p>
+            </div>
+
+            <div class="guide-card">
+              <div class="guide-icon">⚖️</div>
+              <h3>6. False-Positive Awareness</h3>
+              <p>
+                Heuristic scanners look for patterns, not absolute truth. Legitimate promotional campaigns, password expiration notifications, or internal IT notices can trigger urgency or link heuristics. Security teams must corroborate indicators before taking disruptive actions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- App Footer -->
+    <footer class="app-footer">
+      <div class="footer-left">
+        <span>Cybersecurity Threat Detection &bull; Batch 01 &bull; Task 2</span>
+      </div>
+      <div class="footer-right">
+        <span>Developed by <strong>Ali Abbas Haidar (Raqin Al-Asraar)</strong> &bull; <a href="https://github.com/raqinalasraar" target="_blank" rel="noreferrer">@raqinalasraar</a></span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
