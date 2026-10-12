@@ -74,7 +74,7 @@ class MainWindow(QMainWindow):
 
     def create_header(self):
         header_layout = QHBoxLayout()
-        title_label = QLabel("🛡️ Phishing Awareness Analyzer")
+        title_label = QLabel("Phishing Awareness Analyzer")
         title_font = QFont()
         title_font.setPointSize(16)
         title_font.setBold(True)
@@ -107,7 +107,7 @@ class MainWindow(QMainWindow):
         self.populate_corpus_combo()
         self.corpus_combo.currentIndexChanged.connect(self.on_corpus_selected)
 
-        browse_btn = QPushButton("📂 Browse .eml")
+        browse_btn = QPushButton("Browse .eml")
         browse_btn.clicked.connect(self.browse_email_file)
 
         loader_layout.addWidget(loader_label)
@@ -126,7 +126,7 @@ class MainWindow(QMainWindow):
         clear_btn.setProperty("class", "secondary")
         clear_btn.clicked.connect(self.clear_email_tab)
 
-        analyze_btn = QPushButton("🔍 Analyze Threat")
+        analyze_btn = QPushButton("Analyze Threat")
         analyze_btn.clicked.connect(self.run_email_analysis)
 
         btn_layout.addWidget(clear_btn)
@@ -176,7 +176,7 @@ class MainWindow(QMainWindow):
         right_layout.addWidget(self.urls_table, 1)
 
         # Disclaimer
-        disclaimer_lbl = QLabel("⚠️ Disclaimer: Automated heuristics assess behavioral threat patterns; verify sensitive emails via official channels.")
+        disclaimer_lbl = QLabel("Disclaimer: Automated heuristics assess behavioral threat patterns; verify sensitive emails via official channels.")
         disclaimer_lbl.setStyleSheet("color: #f59e0b; font-size: 11px;")
         disclaimer_lbl.setWordWrap(True)
         right_layout.addWidget(disclaimer_lbl)
@@ -189,7 +189,7 @@ class MainWindow(QMainWindow):
         splitter.setStretchFactor(1, 1)
 
         tab_layout.addWidget(splitter)
-        self.tabs.addTab(tab, "✉️ Email Analyzer")
+        self.tabs.addTab(tab, "Email Analyzer")
 
     def populate_corpus_combo(self):
         if CORPUS_DIR.is_dir():
@@ -316,7 +316,7 @@ class MainWindow(QMainWindow):
         box_layout.addWidget(self.url_findings_table)
 
         tab_layout.addWidget(box)
-        self.tabs.addTab(tab, "🔗 URL Inspector")
+        self.tabs.addTab(tab, "URL Inspector")
 
     def load_url_sample(self, url_str: str):
         self.url_input.setText(url_str)
@@ -357,7 +357,7 @@ class MainWindow(QMainWindow):
         top_layout = QHBoxLayout()
         desc = QLabel("Batch-evaluates all synthetic test emails against heuristic rules.")
         desc.setStyleSheet("color: #94a3b8;")
-        run_btn = QPushButton("▶ Run Benchmark on All Samples")
+        run_btn = QPushButton("Run Benchmark on All Samples")
         run_btn.clicked.connect(self.run_benchmark)
         top_layout.addWidget(desc)
         top_layout.addStretch()
@@ -370,7 +370,7 @@ class MainWindow(QMainWindow):
         box_layout.addWidget(self.bench_table)
 
         tab_layout.addWidget(box)
-        self.tabs.addTab(tab, "🧪 Corpus Benchmark")
+        self.tabs.addTab(tab, "Corpus Benchmark")
 
     def run_benchmark(self):
         if not CORPUS_DIR.is_dir():

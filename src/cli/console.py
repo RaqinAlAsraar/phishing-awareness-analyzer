@@ -37,7 +37,7 @@ GRAY = "\033[90m"
 
 def print_banner():
     print(f"{CYAN}{BOLD}===================================================================={RESET}")
-    print(f"{CYAN}{BOLD}        🛡️  PHISHING AWARENESS ANALYZER - CLI RUNNER{RESET}")
+    print(f"{CYAN}{BOLD}        PHISHING AWARENESS ANALYZER - CLI RUNNER{RESET}")
     print(f"        Cybersecurity Threat Detection & Heuristics Engine")
     print(f"        Author: {BOLD}Ali Abbas Haidar (Raqin Al-Asraar){RESET} | @raqinalasraar")
     print(f"{CYAN}{BOLD}===================================================================={RESET}")

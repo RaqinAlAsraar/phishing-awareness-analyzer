@@ -11,7 +11,13 @@
     <!-- Top App Bar -->
     <header class="app-header">
       <div class="brand">
-        <div class="brand-icon">🛡️</div>
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M12 8v4"/>
+            <path d="M12 16h.01"/>
+          </svg>
+        </div>
         <div>
           <h1>Phishing Awareness Analyzer</h1>
           <p class="subtitle">Threat Detection & Heuristics Engine &bull; Task 2</p>
@@ -23,16 +29,58 @@
           <strong>Ali Abbas Haidar</strong>
           <span class="alias">(@raqinalasraar)</span>
         </div>
-        <button id="themeToggle" class="icon-btn" title="Toggle Theme" aria-label="Toggle Theme">🌙</button>
+        <button id="themeToggle" class="icon-btn" title="Toggle Theme" aria-label="Toggle Theme">
+          <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg class="theme-icon sun-icon" style="display:none;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
       </div>
     </header>
 
     <!-- Navigation Tabs -->
     <nav class="tab-nav">
-      <button class="tab-btn active" data-tab="emailTab">✉️ Email Analyzer</button>
-      <button class="tab-btn" data-tab="urlTab">🔗 URL Inspector</button>
-      <button class="tab-btn" data-tab="benchmarkTab">🧪 Synthetic Corpus</button>
-      <button class="tab-btn" data-tab="guideTab">📖 Heuristics Guide</button>
+      <button class="tab-btn active" data-tab="emailTab">
+        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+          <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+        <span>Email Analyzer</span>
+      </button>
+      <button class="tab-btn" data-tab="urlTab">
+        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+        <span>URL Inspector</span>
+      </button>
+      <button class="tab-btn" data-tab="benchmarkTab">
+        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 2v7.31"></path>
+          <path d="M14 9.3V2"></path>
+          <path d="M8.5 2h7"></path>
+          <path d="M14 9.3a6.5 6.5 0 1 1-4 0"></path>
+          <path d="M5.52 16h12.96"></path>
+        </svg>
+        <span>Synthetic Corpus</span>
+      </button>
+      <button class="tab-btn" data-tab="guideTab">
+        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+        </svg>
+        <span>Heuristics Guide</span>
+      </button>
     </nav>
 
     <!-- Main Content Area -->
@@ -54,7 +102,12 @@
 
             <div class="file-drop-zone" id="fileDropZone">
               <input type="file" id="fileInput" accept=".eml,.txt" style="display:none">
-              <button type="button" class="btn btn-secondary btn-sm" id="browseBtn">📂 Open .eml File</button>
+              <button type="button" class="btn btn-secondary btn-sm" id="browseBtn">
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                </svg>
+                <span>Open .eml File</span>
+              </button>
               <span class="drop-hint">or drop raw email file here</span>
             </div>
 
@@ -65,14 +118,25 @@
 
             <div class="card-footer">
               <button id="clearEmailBtn" class="btn btn-secondary">Clear</button>
-              <button id="analyzeEmailBtn" class="btn btn-primary">🔍 Analyze Email Threat</button>
+              <button id="analyzeEmailBtn" class="btn btn-primary">
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <span id="analyzeEmailBtnText">Analyze Email Threat</span>
+              </button>
             </div>
           </div>
 
           <!-- Results Column -->
           <div class="card results-card" id="emailResultsCard">
             <div class="empty-state" id="emailEmptyState">
-              <div class="empty-icon">📧</div>
+              <div class="empty-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
               <h3>Ready for Inspection</h3>
               <p>Paste an email or select a synthetic test sample from the dropdown to evaluate headers, urgency, and embedded links.</p>
             </div>
@@ -171,7 +235,13 @@
 
           <div class="url-input-row">
             <input type="text" id="standaloneUrlInput" placeholder="Enter URL (e.g. http://192.168.1.50/verify or https://micros0ft-login.com)" />
-            <button id="analyzeUrlBtn" class="btn btn-primary">Scan Link</button>
+            <button id="analyzeUrlBtn" class="btn btn-primary">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <span id="analyzeUrlBtnText">Scan Link</span>
+            </button>
           </div>
 
           <!-- URL Results -->
@@ -184,7 +254,12 @@
         <div class="card single-col-card">
           <div class="card-header">
             <h2>Synthetic Corpus Benchmark Suite</h2>
-            <button id="runBenchmarkBtn" class="btn btn-primary">▶ Run Benchmark on All Samples</button>
+            <button id="runBenchmarkBtn" class="btn btn-primary">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              <span id="runBenchmarkBtnText">Run Benchmark on All Samples</span>
+            </button>
           </div>
           <p class="section-desc">
             Batch-evaluates the built-in synthetic test corpus (PayPal, M365, Chase, DHL, GitHub PR, Python Newsletter, Store Receipt) against all heuristic detection rules.
@@ -223,7 +298,12 @@
 
           <div class="guide-grid">
             <div class="guide-card">
-              <div class="guide-icon">👤</div>
+              <div class="guide-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </div>
               <h3>1. Display Name Spoofing</h3>
               <p>
                 Adversaries set the friendly "Display Name" to a trusted brand (e.g., <code>"PayPal Service"</code>) while the actual sending domain is unrelated (e.g., <code>attacker@random-vps.com</code>). Because mobile email clients emphasize display names over addresses, victims are easily misled.
@@ -231,7 +311,12 @@
             </div>
 
             <div class="guide-card">
-              <div class="guide-icon">↩️</div>
+              <div class="guide-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 14 4 9 9 4"></polyline>
+                  <path d="M20 20v-7a4 4 0 0 0-4-4H4"></path>
+                </svg>
+              </div>
               <h3>2. Reply-To Mismatches</h3>
               <p>
                 Phishers may forge legitimate organizations in the <code>From:</code> line, but set a hidden <code>Reply-To:</code> header pointing to their disposable mailbox so any response is routed directly to the attacker.
@@ -239,7 +324,12 @@
             </div>
 
             <div class="guide-card">
-              <div class="guide-icon">🔐</div>
+              <div class="guide-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  <path d="m9 12 2 2 4-4"></path>
+                </svg>
+              </div>
               <h3>3. SPF & DKIM Verification</h3>
               <p>
                 <strong>SPF (Sender Policy Framework)</strong> authorizes IP addresses allowed to send mail on behalf of a domain. <strong>DKIM (DomainKeys Identified Mail)</strong> provides a cryptographic digital signature ensuring message integrity. Failures or absences indicate potential forgery.
@@ -247,7 +337,12 @@
             </div>
 
             <div class="guide-card">
-              <div class="guide-icon">⏳</div>
+              <div class="guide-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
               <h3>4. Psychological Urgency & Scarcity</h3>
               <p>
                 Social engineering relies on urgency cues (e.g., <em>"Within 24 hours"</em>, <em>"Account suspended"</em>, <em>"Immediate action required"</em>) to evoke anxiety and bypass rational analytical scrutiny.
@@ -255,7 +350,13 @@
             </div>
 
             <div class="guide-card">
-              <div class="guide-icon">🔤</div>
+              <div class="guide-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
+                  <line x1="12" y1="9" x2="12" y2="13"></line>
+                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+              </div>
               <h3>5. Typosquatting & Leetspeak</h3>
               <p>
                 Attackers register visual lookalike domains replacing letters with numbers or similar glyphs (e.g., <code>paypa1.com</code> with numeral <code>1</code>, <code>micros0ft.com</code> with <code>0</code>, or appending fake subdomains <code>paypal.com.attacker.net</code>).
@@ -263,7 +364,13 @@
             </div>
 
             <div class="guide-card">
-              <div class="guide-icon">⚖️</div>
+              <div class="guide-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+              </div>
               <h3>6. False-Positive Awareness</h3>
               <p>
                 Heuristic scanners look for patterns, not absolute truth. Legitimate promotional campaigns, password expiration notifications, or internal IT notices can trigger urgency or link heuristics. Security teams must corroborate indicators before taking disruptive actions.

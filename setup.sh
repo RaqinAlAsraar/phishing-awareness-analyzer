@@ -17,7 +17,7 @@ CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
 echo -e "${CYAN}======================================================================${NC}"
-echo -e "${CYAN}   🛡️  Phishing Awareness Analyzer - Setup & Environment Initializer${NC}"
+echo -e "${CYAN}   Phishing Awareness Analyzer - Setup & Environment Initializer${NC}"
 echo -e "${CYAN}   Cybersecurity Internship - Batch 01 - Task 2${NC}"
 echo -e "${CYAN}   Author: Ali Abbas Haidar (Raqin Al-Asraar) | @raqinalasraar${NC}"
 echo -e "${CYAN}======================================================================${NC}"

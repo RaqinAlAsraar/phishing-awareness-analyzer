@@ -78,7 +78,21 @@ body {
 }
 
 .brand-icon {
-  font-size: 32px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(59, 130, 246, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: var(--radius-md);
+  color: var(--primary-accent);
+  flex-shrink: 0;
+}
+
+.brand-icon svg {
+  width: 24px;
+  height: 24px;
 }
 
 .brand h1 {
@@ -126,8 +140,11 @@ body {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   color: var(--text-primary);
-  font-size: 18px;
-  padding: 8px 12px;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: var(--radius-sm);
   cursor: pointer;
   transition: all 0.2s ease;
@@ -135,6 +152,11 @@ body {
 
 .icon-btn:hover {
   background: var(--bg-tertiary);
+}
+
+.icon-btn .theme-icon {
+  width: 18px;
+  height: 18px;
 }
 
 /* Tab Navigation */
@@ -158,6 +180,15 @@ body {
   cursor: pointer;
   transition: all 0.2s ease;
   white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tab-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
 }
 
 .tab-btn:hover {
@@ -306,6 +337,12 @@ textarea:focus {
   gap: 8px;
 }
 
+.btn-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
 .btn-primary {
   background: var(--primary-accent);
   color: #ffffff;
@@ -342,8 +379,18 @@ textarea:focus {
 }
 
 .empty-icon {
-  font-size: 48px;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 16px;
+  color: var(--text-muted);
+}
+
+.empty-icon svg {
+  width: 48px;
+  height: 48px;
 }
 
 .empty-state h3 {
@@ -754,8 +801,20 @@ textarea:focus {
 }
 
 .guide-icon {
-  font-size: 28px;
-  margin-bottom: 10px;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(59, 130, 246, 0.12);
+  border-radius: var(--radius-sm);
+  color: var(--primary-accent);
+  margin-bottom: 12px;
+}
+
+.guide-icon svg {
+  width: 22px;
+  height: 22px;
 }
 
 .guide-card h3 {

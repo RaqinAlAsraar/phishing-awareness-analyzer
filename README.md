@@ -13,7 +13,7 @@
 
 ---
 
-## 📌 Executive Summary
+## Executive Summary
 
 The **Phishing Awareness Analyzer** is a threat detection and security heuristics engine designed to evaluate raw email messages (`.eml`, RFC-822, or plain text) and standalone hyperlinks for indicators of social engineering, brand spoofing, and credential deception.
 
@@ -26,7 +26,7 @@ The application combines:
 
 ---
 
-## 🛡️ Offline Security Guarantee
+## Offline Security Guarantee
 
 > [!IMPORTANT]
 > **Zero Network Probes / Non-Offensive Guarantee**  
@@ -40,7 +40,7 @@ The application combines:
 
 ---
 
-## 🏗️ Architecture & Project Structure
+## Architecture & Project Structure
 
 ```
 phishing-awareness-analyzer/
@@ -92,7 +92,7 @@ phishing-awareness-analyzer/
 
 ---
 
-## 🧮 Heuristic Rules & Scoring Math
+## Heuristic Rules & Scoring Math
 
 The analyzer aggregates findings across three distinct inspection layers and applies authentication discounts before mapping the final net score to a standard 4-tier risk scale:
 
@@ -131,14 +131,14 @@ $$\text{Net Score} = \max\Big(0, \min\big(100, \text{Raw Score} - \text{Auth Bon
 ### 4. Risk Tiers
 | Tier | Score Range | Badge Color | Threat Verdict |
 |---|---|---|---|
-| **Low Risk** | $0 - 24$ | 🟢 Emerald (`#10b981`) | Email appears legitimate. No critical indicators detected. |
-| **Suspicious** | $25 - 49$ | 🟡 Amber (`#f59e0b`) | Low-to-moderate suspicion. Minor anomalies or mild urgency cues found. |
-| **Moderate Risk** | $50 - 74$ | 🟠 Orange (`#f97316`) | Potential phishing detected. Multiple deceptive tactics or unverified sender attributes. |
-| **High Risk** | $75 - 100$ | 🔴 Red (`#ef4444`) | Critical phishing threat! Active deception, spoofed identities, or malicious links detected. |
+| **Low Risk** | $0 - 24$ | Emerald (`#10b981`) | Email appears legitimate. No critical indicators detected. |
+| **Suspicious** | $25 - 49$ | Amber (`#f59e0b`) | Low-to-moderate suspicion. Minor anomalies or mild urgency cues found. |
+| **Moderate Risk** | $50 - 74$ | Orange (`#f97316`) | Potential phishing detected. Multiple deceptive tactics or unverified sender attributes. |
+| **High Risk** | $75 - 100$ | Red (`#ef4444`) | Critical phishing threat! Active deception, spoofed identities, or malicious links detected. |
 
 ---
 
-## 🧪 Synthetic Corpus Benchmark Results
+## Synthetic Corpus Benchmark Results
 
 The engine includes 7 synthetic, sanitized test emails in `data/corpus/` representing real-world attack vectors and legitimate communications:
 
@@ -148,19 +148,19 @@ $ python3 main.py --corpus
 
 | Sample File | Scenario Simulated | Ground Truth | Predicted Score | Risk Tier | Flags |
 |---|---|---|---|---|---|
-| `phishing_paypal.eml` | PayPal Account Suspension (Display Spoof & Leetspeak) | **Phishing** | **100 / 100** | 🔴 High Risk | 11 |
-| `phishing_m365_reset.eml` | Microsoft 365 Password Expiry (IP Link & Urgency) | **Phishing** | **100 / 100** | 🔴 High Risk | 8 |
-| `phishing_bank_urgency.eml` | Chase Bank Security Alert (Subdomain Trickery) | **Phishing** | **100 / 100** | 🔴 High Risk | 9 |
-| `phishing_fake_invoice.eml` | DHL Parcel Customs Fee (Reply-To Mismatch) | **Phishing** | **100 / 100** | 🔴 High Risk | 7 |
-| `legit_github_notification.eml` | GitHub PR Review Notification (Valid SPF/DKIM) | **Legitimate** | **0 / 100** | 🟢 Low Risk | 0 |
-| `legit_newsletter.eml` | Python Weekly Newsletter (Valid Sender Policies) | **Legitimate** | **0 / 100** | 🟢 Low Risk | 0 |
-| `legit_order_receipt.eml` | Store Parcel Receipt (Standard Order Confirmation) | **Legitimate** | **0 / 100** | 🟢 Low Risk | 0 |
+| `phishing_paypal.eml` | PayPal Account Suspension (Display Spoof & Leetspeak) | **Phishing** | **100 / 100** | High Risk | 11 |
+| `phishing_m365_reset.eml` | Microsoft 365 Password Expiry (IP Link & Urgency) | **Phishing** | **100 / 100** | High Risk | 8 |
+| `phishing_bank_urgency.eml` | Chase Bank Security Alert (Subdomain Trickery) | **Phishing** | **100 / 100** | High Risk | 9 |
+| `phishing_fake_invoice.eml` | DHL Parcel Customs Fee (Reply-To Mismatch) | **Phishing** | **100 / 100** | High Risk | 7 |
+| `legit_github_notification.eml` | GitHub PR Review Notification (Valid SPF/DKIM) | **Legitimate** | **0 / 100** | Low Risk | 0 |
+| `legit_newsletter.eml` | Python Weekly Newsletter (Valid Sender Policies) | **Legitimate** | **0 / 100** | Low Risk | 0 |
+| `legit_order_receipt.eml` | Store Parcel Receipt (Standard Order Confirmation) | **Legitimate** | **0 / 100** | Low Risk | 0 |
 
 **Accuracy:** 100% precision and recall across all synthetic test cases.
 
 ---
 
-## ⚖️ Educational Notice & False-Positive Handling
+## Educational Notice & False-Positive Handling
 
 > [!WARNING]
 > **Heuristic Limitations & Operational Awareness**  
@@ -172,7 +172,7 @@ $ python3 main.py --corpus
 
 ---
 
-## 🚀 Installation & Running (Linux)
+## Installation & Running (Linux)
 
 This project is tailored specifically for **Linux** environments (Kali Linux, Ubuntu, Debian, Arch, Fedora, etc.).
 
@@ -225,7 +225,7 @@ python3 main.py -f data/corpus/phishing_paypal.eml --json
 
 ---
 
-## 🧪 Automated Testing & Verification
+## Automated Testing & Verification
 
 The project includes 27 comprehensive automated unit tests covering headers, body linguistics, URLs, scoring math, ground-truth corpus classification, and offline safety:
 
@@ -250,7 +250,7 @@ pytest -v
 
 ---
 
-## 👤 Author & Attribution
+## Author & Attribution
 
 - **Author:** Ali Abbas Haidar (Raqin Al-Asraar)
 - **GitHub:** [@raqinalasraar](https://github.com/raqinalasraar)
@@ -259,6 +259,6 @@ pytest -v
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for complete details.

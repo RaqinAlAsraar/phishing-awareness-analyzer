@@ -50,7 +50,12 @@ document.addEventListener("DOMContentLoaded", () => {
   themeToggle.addEventListener("click", () => {
     const isDark = document.body.classList.toggle("dark-theme");
     document.body.classList.toggle("light-theme", !isDark);
-    themeToggle.textContent = isDark ? "🌙" : "☀️";
+    const moonIcon = themeToggle.querySelector(".moon-icon");
+    const sunIcon = themeToggle.querySelector(".sun-icon");
+    if (moonIcon && sunIcon) {
+      moonIcon.style.display = isDark ? "block" : "none";
+      sunIcon.style.display = isDark ? "none" : "block";
+    }
   });
 
   // 2. Tab Navigation
@@ -153,8 +158,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   async function runEmailAnalysis(rawText) {
+    const textSpan = document.getElementById("analyzeEmailBtnText");
     analyzeEmailBtn.disabled = true;
-    analyzeEmailBtn.textContent = "Analyzing...";
+    if (textSpan) textSpan.textContent = "Analyzing...";
 
     try {
       const res = await fetch("/api/analyze", {
@@ -173,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Analysis failed: " + err.message);
     } finally {
       analyzeEmailBtn.disabled = false;
-      analyzeEmailBtn.textContent = "🔍 Analyze Email Threat";
+      if (textSpan) textSpan.textContent = "Analyze Email Threat";
     }
   }
 
@@ -320,8 +326,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   async function runUrlAnalysis(urlStr) {
+    const textSpan = document.getElementById("analyzeUrlBtnText");
     analyzeUrlBtn.disabled = true;
-    analyzeUrlBtn.textContent = "Scanning...";
+    if (textSpan) textSpan.textContent = "Scanning...";
 
     try {
       const res = await fetch("/api/analyze", {
@@ -337,7 +344,7 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("URL scan error: " + err.message);
     } finally {
       analyzeUrlBtn.disabled = false;
-      analyzeUrlBtn.textContent = "Scan Link";
+      if (textSpan) textSpan.textContent = "Scan Link";
     }
   }
 
@@ -393,8 +400,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 8. Synthetic Corpus Benchmark Tab
   runBenchmarkBtn.addEventListener("click", async () => {
+    const textSpan = document.getElementById("runBenchmarkBtnText");
     runBenchmarkBtn.disabled = true;
-    runBenchmarkBtn.textContent = "Running Benchmark...";
+    if (textSpan) textSpan.textContent = "Running Benchmark...";
     benchmarkTableBody.innerHTML = `<tr><td colspan="7" class="text-center">Executing heuristics across test corpus...</td></tr>`;
 
     try {
