@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Analysis failed: " + err.message);
     } finally {
       analyzeEmailBtn.disabled = false;
-      if (textSpan) textSpan.textContent = "Analyze Email Threat";
+      if (textSpan) textSpan.textContent = "Analyze Threat";
     }
   }
 
@@ -291,9 +291,9 @@ document.addEventListener("DOMContentLoaded", () => {
       case "critical": return "#ef4444";
       case "high": return "#f97316";
       case "medium": return "#f59e0b";
-      case "low":
-      case "info": return "#3b82f6";
-      default: return "#94a3b8";
+      case "low": return "#00df81";
+      case "info": return "#2cc295";
+      default: return "#707d7d";
     }
   }
 
@@ -440,7 +440,7 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Benchmark failed: " + err.message);
     } finally {
       runBenchmarkBtn.disabled = false;
-      runBenchmarkBtn.textContent = "▶ Run Benchmark on All Samples";
+      if (textSpan) textSpan.textContent = "Run Benchmark";
     }
   });
 });

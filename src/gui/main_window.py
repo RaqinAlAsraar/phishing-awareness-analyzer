@@ -51,7 +51,7 @@ CORPUS_DIR = PROJECT_ROOT / "data" / "corpus"
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Phishing Awareness Analyzer - Threat Detection & Heuristics")
+        self.setWindowTitle("Phishing Awareness Analyzer • Raqin Al-Asraar (@raqinalasraar)")
         self.resize(1180, 820)
         self.setStyleSheet(DARK_THEME_QSS)
 
@@ -79,10 +79,10 @@ class MainWindow(QMainWindow):
         title_font.setPointSize(16)
         title_font.setBold(True)
         title_label.setFont(title_font)
-        title_label.setStyleSheet("color: #38bdf8;")
+        title_label.setStyleSheet("color: #00df81;")
 
-        author_label = QLabel("Author: Ali Abbas Haidar (Raqin Al-Asraar) | @raqinalasraar")
-        author_label.setStyleSheet("color: #94a3b8; font-size: 12px;")
+        author_label = QLabel("by Raqin Al-Asraar (@raqinalasraar)")
+        author_label.setStyleSheet("color: #aacbc4; font-size: 13px; font-weight: 500;")
 
         header_layout.addWidget(title_label)
         header_layout.addStretch()
@@ -145,14 +145,14 @@ class MainWindow(QMainWindow):
         self.score_label.setFont(score_font)
 
         self.verdict_label = QLabel("Awaiting input for analysis.")
-        self.verdict_label.setStyleSheet("color: #94a3b8; font-weight: 600;")
+        self.verdict_label.setStyleSheet("color: #aacbc4; font-weight: 600;")
 
         right_layout.addWidget(self.score_label)
         right_layout.addWidget(self.verdict_label)
 
         # Sender & Auth Summary
         self.sender_label = QLabel("Sender Info: N/A")
-        self.sender_label.setStyleSheet("color: #cbd5e1; font-size: 12px; margin-top: 4px;")
+        self.sender_label.setStyleSheet("color: #aacbc4; font-size: 12px; margin-top: 4px;")
         right_layout.addWidget(self.sender_label)
 
         # Findings Table
@@ -307,7 +307,7 @@ class MainWindow(QMainWindow):
         box_layout.addWidget(self.url_score_label)
 
         self.url_verdict_label = QLabel("Enter a URL and click Scan.")
-        self.url_verdict_label.setStyleSheet("color: #94a3b8;")
+        self.url_verdict_label.setStyleSheet("color: #aacbc4;")
         box_layout.addWidget(self.url_verdict_label)
 
         self.url_findings_table = QTableWidget(0, 4)
@@ -356,7 +356,7 @@ class MainWindow(QMainWindow):
 
         top_layout = QHBoxLayout()
         desc = QLabel("Batch-evaluates all synthetic test emails against heuristic rules.")
-        desc.setStyleSheet("color: #94a3b8;")
+        desc.setStyleSheet("color: #aacbc4;")
         run_btn = QPushButton("Run Benchmark on All Samples")
         run_btn.clicked.connect(self.run_benchmark)
         top_layout.addWidget(desc)
